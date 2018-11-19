@@ -1,0 +1,28 @@
+<div class="row">
+
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header"><strong>Blog Posts</strong></div>
+      <div class="card-body">
+
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <td>Total Posts</td>
+
+            </tr>
+            <tr>
+              <td>Published Posts</td>
+
+            </tr>
+            <tr>
+              <td>Drafts</td>
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
