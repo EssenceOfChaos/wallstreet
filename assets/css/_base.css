@@ -1,0 +1,17 @@
+.headline, .center {
+  text-align: center;
+}
+
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 65px;
+}
+.main {
+  margin-left: 160px;
+}

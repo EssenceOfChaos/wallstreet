@@ -5,11 +5,15 @@ defmodule Wallstreet.Auth.User do
 
   schema "users" do
     field :admin, :boolean, default: false
-    field :balance, :float, default: 10_000
+    field :balance, :float, default: 10_000.00
     field :display_name, :string
     field :email, :string
     field :password_hash, :string
     field :rank, :integer
+
+    ## Virtual Fields ##
+    field :password, :string, virtual: true
+    field :password_confirmation, :string, virtual: true
 
     timestamps()
   end
@@ -23,7 +27,7 @@ defmodule Wallstreet.Auth.User do
     |> cast(attrs, @create_fields ++ @optional_fields)
     |> validate_required(@create_fields)
     |> validate_format(:email, ~r/(\w+)@([\w.]+)/)
-    |> validate_length(:password, min: 3)
+    |> validate_length(:password, min: 6)
     |> unique_constraint(:email)
     |> put_password_hash()
   end

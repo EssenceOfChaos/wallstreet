@@ -1,5 +1,5 @@
 
 <div class="sidenav bg-dark">
   <%= link raw(~s'<i class="fa fa-tachometer"></i>Dashboard'), to: Routes.admin_home_path(@conn, :index) %>
-  <%= link raw(~s'<i class="fa fa-paper-plane"></i>Posts'), to: Routes.admin_post_path(@conn, :index) %>
+  <%= link raw(~s'<i class="fa fa-paper-plane"></i>Home'), to: Routes.page_path(@conn, :index) %>
 </div>

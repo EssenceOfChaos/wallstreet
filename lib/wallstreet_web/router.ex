@@ -23,15 +23,14 @@ defmodule WallstreetWeb.Router do
   scope "/admin", WallstreetWeb, as: :admin do
     pipe_through [:browser, :authenticated]
     get "/", Admin.HomeController, :index
-    resources("/post", Admin.PostController) do
-      get "/publish", Admin.PostController, :publish, as: :publish
-    end
+
   end
 
   scope "/", WallstreetWeb do
     pipe_through :browser
 
     get "/", PageController, :index
+    resources("/users", UserController, only: [:create, :new, :delete])
     resources("/session", SessionController, only: [:create, :new, :delete])
   end
 

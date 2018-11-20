@@ -13,7 +13,7 @@
       <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
 
         <li class="nav-item">
-          <%= link("Home", to: Routes.page_path(@conn, :index), class: "nav-link") %>
+          <%= link("Sign up", to: Routes.user_path(@conn, :new), class: "nav-link") %>
         </li>
 
         <li class="nav-item">
