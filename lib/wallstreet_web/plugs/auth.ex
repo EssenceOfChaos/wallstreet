@@ -1,5 +1,5 @@
 defmodule Wallstreet.Plug.Authentication do
-
+  @moduledoc false
   use Guardian.Plug.Pipeline,
     otp_app: :wallstreet,
     error_handler: Wallstreet.GuardianErrorHandler,

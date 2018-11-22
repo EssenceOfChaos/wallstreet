@@ -1,4 +1,5 @@
 defmodule Wallstreet.Auth.Guardian do
+  @moduledoc false
   use Guardian, otp_app: :wallstreet
 
   alias Wallstreet.Auth.Accounts

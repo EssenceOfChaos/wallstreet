@@ -1,0 +1,24 @@
+  <nav class="ui fixed inverted menu">
+    <div class="ui container">
+      <a href="/" class="header item">
+        <img class="logo" src="/images/stock-market.png">
+        WallStreet
+      </a>
+      <a href="#" class="item">Link</a>
+      <%= link("Create Portfolio", to: Routes.portfolio_path(@conn, :new), class: "item") %>
+        <div class="right menu">
+        <%= if Wallstreet.Auth.Accounts.get_current_user(@conn) do %>
+        <div class="item">
+         <%= link raw(~s'<i class="sign out alternate icon"></i>Logout'), to: Routes.session_path(@conn, :new), method: :delete, class: "ui red button" %>
+        </div>
+        <% else %>
+          <%= link("Login", to: Routes.session_path(@conn, :new), class: "item") %>
+          <%= link("Sign up", to: Routes.user_path(@conn, :new), class: "item") %>
+        <% end %>
+          <%= if Wallstreet.Auth.Accounts.is_current_user_admin?(@conn) do %>
+            <%= link("Dashboard", to: Routes.admin_home_path(@conn, :index), class: "item") %>
+          <% end %>
+        </div>
+    </div>
+  </nav>
+

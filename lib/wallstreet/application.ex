@@ -11,9 +11,10 @@ defmodule Wallstreet.Application do
       # Start the Ecto repository
       Wallstreet.Repo,
       # Start the endpoint when the application starts
-      WallstreetWeb.Endpoint
+      WallstreetWeb.Endpoint,
       # Starts a worker by calling: Wallstreet.Worker.start_link(arg)
       # {Wallstreet.Worker, arg},
+      WallstreetWeb.Presence
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

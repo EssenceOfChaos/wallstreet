@@ -5,11 +5,13 @@ defmodule Wallstreet.Auth.User do
 
   schema "users" do
     field :admin, :boolean, default: false
-    field :balance, :float, default: 10_000.00
+    field :balance, :float
     field :display_name, :string
     field :email, :string
     field :password_hash, :string
     field :rank, :integer
+
+    has_many(:portfolio, Wallstreet.Investment.Portfolio)
 
     ## Virtual Fields ##
     field :password, :string, virtual: true

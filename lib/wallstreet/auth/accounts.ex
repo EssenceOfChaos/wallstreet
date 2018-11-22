@@ -1,9 +1,9 @@
 defmodule Wallstreet.Auth.Accounts do
+  @moduledoc false
 
   alias Wallstreet.Repo
-  alias Wallstreet.Auth.User
+  alias Wallstreet.Auth.{User, Guardian}
   alias Comeonin.Argon2
-  alias Wallstreet.Auth
 
   import Ecto.Query
   import Plug.Conn
@@ -27,32 +27,40 @@ defmodule Wallstreet.Auth.Accounts do
   def get_user!(id), do: Repo.get!(User, id)
 
   def get_current_user(conn) do
-    Auth.Guardian.Plug.current_resource(conn)
+    Guardian.Plug.current_resource(conn)
   end
 
   def is_current_user_admin?(conn) do
-    user = Auth.Guardian.Plug.current_resource(conn)
+    user = Guardian.Plug.current_resource(conn)
     case user do
       nil -> false
-      user -> user.is_admin
+      user -> user.admin
     end
   end
 
   def authenticate_user(email, given_password) do
     query = Ecto.Query.from(u in User, where: u.email == ^email)
+
     Repo.one(query)
     |> check_password(given_password)
   end
 
   def login(conn, user) do
     conn
-    |> Auth.Guardian.Plug.sign_in(user)
+    |> Guardian.Plug.sign_in(user)
     |> assign(:current_user, user)
+    |> put_user_token(user)
   end
 
   def logout(conn) do
     conn
-    |> Auth.Guardian.Plug.sign_out()
+    |> Guardian.Plug.sign_out()
+  end
+
+  def load_current_user(conn, _) do
+    conn
+    |> assign(:current_user, Guardian.Plug.current_resource(conn))
+    |> put_user_token(Guardian.Plug.current_resource(conn))
   end
 
   @doc """
@@ -112,6 +120,13 @@ defmodule Wallstreet.Auth.Accounts do
       true -> {:ok, user}
       false -> {:error, "Incorrect email or password"}
     end
+  end
+
+  defp put_user_token(conn, user) do
+    token = Phoenix.Token.sign(conn, "user socket", user.id)
+
+    conn
+    |> assign(:user_token, token)
   end
 
 end

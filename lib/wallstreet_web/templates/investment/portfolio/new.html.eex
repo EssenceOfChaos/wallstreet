@@ -1,0 +1,11 @@
+ <p>The User : <%=@user.display_name %></p>
+ <p>The Balance : <%=Number.Currency.number_to_currency(@user.balance) %> </p>
+ <p>The Email : <%=@user.email %> </p>
+<br>
+
+<div class="ui raised very padded text container segment">
+    <div class="ui header">Create a portfolio</div>
+      <%= render "form.html", Map.put(assigns, :action, Routes.user_path(@conn, :create)) %>
+</div>
+
+

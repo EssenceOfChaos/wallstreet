@@ -1,14 +1,13 @@
+
+
 <section class="phx-hero">
-  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
-  <p>A productive web framework that<br/>does not compromise speed and maintainability.</p>
+  <h1><%= gettext "Welcome to %{name}!", name: "WallStreet" %></h1>
+  <p>Real stocks, real data, play money!</p>
 </section>
 
-<section class="row">
-  <li class="nav-item">
-        <%= if Wallstreet.Auth.Accounts.get_current_user(@conn) do %>
-          <%= link("Logout", to: Routes.session_path(@conn, :new), method: :delete, class: "nav-link") %>
-        <% else %>
-          <%= link("Login", to: Routes.session_path(@conn, :new), class: "nav-link") %>
-        <% end %>
-        </li>
-</section>
+<h1 class="ui header">Semantic UI Fixed Template</h1>
+<p>This is a basic fixed menu template using fixed size containers.</p>
+<p>Lorem Ipsum Text</p>
+<img class="wireframe" src="/images/media-paragraph.png">
+<img class="wireframe" src="/images/paragraph.png">
+<img class="wireframe" src="/images/paragraph.png">

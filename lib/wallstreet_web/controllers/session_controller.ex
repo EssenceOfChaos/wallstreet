@@ -12,6 +12,7 @@ defmodule WallstreetWeb.SessionController do
       {:ok, user} ->
         conn
         |> Accounts.login(user)
+        |> put_flash(:info, "You have successfully logged in!")
         |> redirect_after_login(user)
 
       {:error, _} ->
@@ -24,13 +25,14 @@ defmodule WallstreetWeb.SessionController do
   def delete(conn, _) do
     conn
     |> Accounts.logout()
+    |> put_flash(:success, "You've been successfully logged out")
     |> redirect(to: Routes.page_path(conn, :index))
   end
 
   # Private
 
   defp redirect_after_login(conn, user) do
-    case user.is_admin do
+    case user.admin do
       true -> redirect(conn, to: Routes.admin_home_path(conn, :index))
       false -> redirect(conn, to: Routes.page_path(conn, :index))
     end

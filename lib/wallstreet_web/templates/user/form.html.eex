@@ -1,30 +1,31 @@
-<%= form_for @changeset, @action, fn f -> %>
+<div class="card-body">
+  <%= form_for @changeset, @action, [class: "ui form"], fn f -> %>
   <%= if @changeset.action do %>
     <div class="alert alert-danger" role="alert">
       <p>Oops, something went wrong! Please check the errors below.</p>
     </div>
   <% end %>
-
-    <div class="form-group">
+  <!-- Display name -->
+   <div class="field">
     <%= label f, :display_name, class: "control-label" %>
     <div class="ui left icon input">
       <i class="user icon"></i>
-      <%= text_input f, :display_name, class: "form-control", autofocus: "true" %>
+      <%= text_input f, :display_name, class: "form-control", autofocus: "true", placeholder: "Display name" %>
     </div>
     <%= error_tag f, :display_name %>
-  </div> <!-- / email address -->
+  </div> <!-- /Display name -->
 
-  <div class="form-group"> <!--password -->
+   <div class="field"> <!-- Email -->
     <%= label f, :email, class: "control-label" %>
     <div class="ui left icon input">
       <i class="mail icon"></i>
       <%= email_input f, :email, class: "form-control", placeholder: "Email address" %>
     </div>
     <%= error_tag f, :email %>
-  </div> <!-- / password -->
+  </div> <!-- /Email -->
 
 
-  <div class="form-group">
+   <div class="field">
     <%= label f, :password, class: "control-label" %>
     <div class="ui left icon input">
       <i class="lock icon"></i>
@@ -33,7 +34,7 @@
     <%= error_tag f, :password %>
   </div>
 
-  <div class="form-group">
+   <div class="field">
     <%= label f, :password_confirmation, class: "control-label" %>
     <div class="ui left icon input">
       <i class="lock icon"></i>
@@ -45,13 +46,13 @@
 
 
   <div class="form-group">
-    <%= submit "Submit", class: "btn btn-primary btn-sm" %>
+    <%= submit "Submit", class: "ui primary button" %>
   </div>
 <% end %>
 
-
+</div>
 <br />
 <div class="alert alert-info center" role="alert">
-      Already have an account?
-       <%= link("Login", to: Routes.session_path(@conn, :new), class: "btn btn-outline-info btn-sm") %>
+      <span class="spacer">Already have an account?</span>
+       <%= link raw(~s'<i class="sign in alternate icon"></i>Login'), to: Routes.session_path(@conn, :new), class: "ui basic secondary button" %>
 </div>

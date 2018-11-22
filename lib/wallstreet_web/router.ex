@@ -23,15 +23,23 @@ defmodule WallstreetWeb.Router do
   scope "/admin", WallstreetWeb, as: :admin do
     pipe_through [:browser, :authenticated]
     get "/", Admin.HomeController, :index
-
   end
 
   scope "/", WallstreetWeb do
-    pipe_through :browser
+    # Use the default browser stack
+    pipe_through(:browser)
 
-    get "/", PageController, :index
-    resources("/users", UserController, only: [:create, :new, :delete])
-    resources("/session", SessionController, only: [:create, :new, :delete])
+    get("/", PageController, :index)
+    resources("/users", UserController, only: [:new, :create])
+    resources("/sessions", SessionController, only: [:new, :create, :delete])
+  end
+
+
+  scope "/", WallstreetWeb do
+    pipe_through [:browser, :authenticated]
+    resources("/users", UserController, only: [:index, :show])
+    resources("/session", SessionController, only: [:delete])
+    resources("/investment/portfolio", Investment.PortfolioController)
   end
 
   # Other scopes may use custom stacks.

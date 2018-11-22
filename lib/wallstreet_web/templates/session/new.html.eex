@@ -1,24 +1,29 @@
-<div class="row">
-
-<div class="col-md-4 offset-md-4">
-  <div class="card">
-    <div class="card-header">Login</div>
+<br>
+<div class="ui raised very padded text container segment">
+    <div class="ui header">Login</div>
       <div class="card-body">
-        <%= form_for @conn, Routes.session_path(@conn, :create), [as: :session], fn f-> %>
+        <%= form_for @conn, Routes.session_path(@conn, :create), [as: :session, class: "ui form"], fn f-> %>
 
-          <div class="form-group">
-            <%= text_input f, :email, placeholder: "Email", class: "form-control form-control-sm" %>
+         <div class="field">
+            <%= text_input f, :email, placeholder: "Email", class: "form-control form-control-sm", autofocus: "true" %>
           </div>
 
-          <div class="form-group">
+           <div class="field">
             <%= password_input f, :password, placeholder: "Password", class: "form-control form-control-sm" %>
           </div>
 
           <div class="text-center">
-            <%= submit "Log In", class: "btn btn-outline-primary btn-sm" %>
+            <%= submit "Log In", class: "ui primary button" %>
           </div>
 
         <% end %>
+      </div>
+      <div>
+      <br>
+        <div class="alert alert-info center" role="alert">
+          <span class="spacer">Don't have an account?</span>
+            <%= link raw(~s'<i class="user outline icon"></i>Sign up'), to: Routes.user_path(@conn, :new), class: "ui basic secondary button" %>
+        </div>
       </div>
     </div>
   </div>

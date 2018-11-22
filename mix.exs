@@ -48,7 +48,9 @@ defmodule Wallstreet.MixProject do
       {:comeonin, "~> 4.0"},
       {:argon2_elixir, "~> 1.3"},
       {:gen_state_machine, "~> 2.0"},
-      {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false}
+      {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false},
+      {:number, "~> 0.5.6"},
+      {:httpoison, "~> 1.4"}
     ]
   end
 
