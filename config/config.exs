@@ -17,6 +17,7 @@ config :wallstreet, WallstreetWeb.Endpoint,
   render_errors: [view: WallstreetWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Wallstreet.PubSub, adapter: Phoenix.PubSub.PG2]
 
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
@@ -29,6 +30,11 @@ config :phoenix, :json_library, Jason
 config :wallstreet, Wallstreet.Auth.Guardian,
   issuer: "WALLSTREET",
   secret_key: "QHgXsWbiokeJKIl2s+Jzt/1JhE5DH+vuD15+S8rvNoX7FA5QjOeSdcAfK89EYkn9"
+
+
+
+
+
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
