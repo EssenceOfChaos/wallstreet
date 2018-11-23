@@ -13,13 +13,7 @@
     <%= render "_navbar.html", conn: @conn %>
     <div class="ui container" id="app-wrapper">
     <br>
-      <div class="ui basic text menu">
-        <div class="right menu">
-          <%= if Wallstreet.Auth.Accounts.get_current_user(@conn) do %>
-        <a class="item">Logged in as  </a>
-        <%end%>
-        </div>
-      </div>
+
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
       <main role="main">

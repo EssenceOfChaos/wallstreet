@@ -11,4 +11,9 @@ defmodule Wallstreet.Api.StockPrice do
       {:error, %HTTPoison.Error{reason: reason}} -> IO.inspect reason
     end
   end
+
+
+  def batch_quote(portfolio_params) do
+    IO.inspect(portfolio_params)
+  end
 end

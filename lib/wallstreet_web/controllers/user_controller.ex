@@ -1,7 +1,6 @@
 defmodule WallstreetWeb.UserController do
   use WallstreetWeb, :controller
-  alias Wallstreet.Auth.Accounts
-  alias Wallstreet.Auth.User
+  alias Wallstreet.Auth.{Accounts, User}
 
   def new(conn, _params) do
     changeset = Accounts.change_user(%User{})
@@ -14,8 +13,9 @@ defmodule WallstreetWeb.UserController do
         conn
         |> assign(:current_user, user)
         |> put_session(:user_id, user.id)
-        |> put_flash(:info, "User created successfully.")
-        |> redirect(to: Routes.page_path(conn, :index))
+        |> Accounts.login(user)
+        |> put_flash(:info, "#{user.display_name} created successfully.")
+        |> redirect_after_login(user)
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
@@ -29,6 +29,13 @@ defmodule WallstreetWeb.UserController do
     |> put_flash(:info, "User deleted successfully.")
     |> redirect(to: Routes.user_path(conn, :index))
   end
+  # Private
 
+  defp redirect_after_login(conn, user) do
+    case user.admin do
+      true -> redirect(conn, to: Routes.admin_home_path(conn, :index))
+      false -> redirect(conn, to: Routes.page_path(conn, :index))
+    end
+  end
 
 end

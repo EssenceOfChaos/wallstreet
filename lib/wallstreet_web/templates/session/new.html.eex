@@ -25,7 +25,4 @@
             <%= link raw(~s'<i class="user outline icon"></i>Sign up'), to: Routes.user_path(@conn, :new), class: "ui basic secondary button" %>
         </div>
       </div>
-    </div>
-  </div>
-
 </div>

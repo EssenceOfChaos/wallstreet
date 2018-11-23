@@ -40,6 +40,7 @@ defmodule WallstreetWeb.Router do
     resources("/users", UserController, only: [:index, :show])
     resources("/session", SessionController, only: [:delete])
     resources("/investment/portfolio", Investment.PortfolioController)
+
   end
 
   # Other scopes may use custom stacks.
