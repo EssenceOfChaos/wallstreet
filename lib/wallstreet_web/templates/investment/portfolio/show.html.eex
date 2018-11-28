@@ -1,2 +1,12 @@
 <h1>User Dashboard</h1>
+<hr>
 <p> Let's see how you're doing</p>
+<h3>Initial Purchase Prices</h3>
+
+  <%= for {k, v} <- @portfolio.stocks do %>
+  <%= k %> <%= v %><br>
+  <%end%>
+
+
+<br>
+<%=@portfolio.inserted_at%>

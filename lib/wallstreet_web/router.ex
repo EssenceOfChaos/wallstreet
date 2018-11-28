@@ -17,7 +17,6 @@ defmodule WallstreetWeb.Router do
 
   pipeline :authenticated do
     plug Plug.EnsureAuthentication
-    plug Plug.ShowSidebar
   end
 
   scope "/admin", WallstreetWeb, as: :admin do
@@ -31,7 +30,7 @@ defmodule WallstreetWeb.Router do
 
     get("/", PageController, :index)
     resources("/users", UserController, only: [:new, :create])
-    resources("/sessions", SessionController, only: [:new, :create, :delete])
+    resources("/session", SessionController, only: [:create, :new, :delete])
   end
 
 

@@ -24,14 +24,14 @@ defmodule WallstreetWeb.UserSocket do
   def connect(%{"token" => token}, socket) do
     case Phoenix.Token.verify(socket, "user socket", token, max_Age: @max_age) do
       {:ok, user_id} ->
-        {:ok, assign(socket, :user_id, user_id)}
+        {:ok, assign(socket, :current_user_id, user_id)}
 
       {:error, _reason} ->
         :error
     end
   end
 
-  def connect(_params, socket), do: :error_handler
+  def connect(_params, _socket), do: :error_handler
 
   # Socket id's are topics that allow you to identify all sockets for a given user:
   #
@@ -45,5 +45,6 @@ defmodule WallstreetWeb.UserSocket do
   # Returning `nil` makes this socket anonymous.
 
   # def id(_socket), do: nil
-  def id(socket), do: "user_socket:#{socket.assigns.user_id}"
+  # def id(socket), do: "user_socket:#{socket.assigns.current_user_id}"
+  def id(_socket), do: nil
 end

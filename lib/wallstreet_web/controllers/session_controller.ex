@@ -7,6 +7,7 @@ defmodule WallstreetWeb.SessionController do
     render(conn, "new.html")
   end
 
+  @spec create(Plug.Conn.t(), map()) :: Plug.Conn.t()
   def create(conn, %{"session" => %{"email" => email, "password" => password}}) do
     case Accounts.authenticate_user(email, password) do
       {:ok, user} ->

@@ -11,7 +11,8 @@ defmodule Wallstreet.Auth.User do
     field :password_hash, :string
     field :rank, :integer
 
-    has_many(:portfolio, Wallstreet.Investment.Portfolio)
+# portfolios ? plural or singular?
+    has_many(:portfolios, Wallstreet.Investment.Portfolio)
 
     ## Virtual Fields ##
     field :password, :string, virtual: true

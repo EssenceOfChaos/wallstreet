@@ -2,8 +2,8 @@ defmodule Wallstreet.Investment.Broker do
   @moduledoc false
   alias Wallstreet.Investment.Portfolio
   alias Wallstreet.Repo
-  alias Wallstreet.Auth.{User, Guardian}
-
+  alias Wallstreet.Auth.{User}
+  alias Wallstreet.Api.StockPrice
   # import Ecto.Query
   # import Plug.Conn
 
@@ -14,8 +14,11 @@ defmodule Wallstreet.Investment.Broker do
 
 
   def create_portfolio(%User{} = user, attrs \\ %{}) do
+    IO.inspect("HELLO I AM THE USER")
+    IO.inspect user
+    stocks = StockPrice.batch_quote(attrs)
     %Portfolio{}
-    |> Portfolio.changeset(attrs)
+    |> Portfolio.changeset(Map.put(attrs, "stocks", stocks))
     |> put_user(user)
     |> Repo.insert()
   end

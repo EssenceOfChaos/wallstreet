@@ -46,7 +46,7 @@
 
 
   <div class="form-group">
-    <%= submit "Submit", class: "ui primary button" %>
+    <%= submit "Submit", class: "ui teal fluid button" %>
   </div>
 <% end %>
 
@@ -54,5 +54,5 @@
 <br />
 <div class="alert alert-info center" role="alert">
       <span class="spacer">Already have an account?</span>
-       <%= link raw(~s'<i class="sign in alternate icon"></i>Login'), to: Routes.session_path(@conn, :new), class: "ui basic secondary button" %>
+       <%= link raw(~s'<i class="sign in alternate icon"></i>Login'), to: Routes.session_path(@conn, :new), class: "ui primary small button" %>
 </div>
