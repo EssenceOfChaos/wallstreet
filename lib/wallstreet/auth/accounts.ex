@@ -24,7 +24,10 @@ defmodule Wallstreet.Auth.Accounts do
       ** (Ecto.NoResultsError)
 
   """
-  def get_user!(id), do: Repo.get!(User, id)
+  def get_user!(id) do
+    Repo.get!(User, id)
+    |> Repo.preload(:portfolios)
+  end
 
   def get_current_user(conn) do
     Guardian.Plug.current_resource(conn)

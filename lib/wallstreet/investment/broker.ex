@@ -8,6 +8,7 @@ defmodule Wallstreet.Investment.Broker do
   # import Plug.Conn
 
 
+
   def change_portfolio(%Portfolio{} = portfolio) do
     Portfolio.changeset(portfolio, %{})
   end
@@ -30,5 +31,7 @@ defmodule Wallstreet.Investment.Broker do
   defp put_user(changeset, user) do
     Ecto.Changeset.put_assoc(changeset, :user, user)
   end
+
+
 
 end

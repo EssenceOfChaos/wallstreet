@@ -8,6 +8,7 @@
 <h1 class="ui header">Semantic UI Fixed Template</h1>
 <p>This is a basic fixed menu template using fixed size containers.</p>
 <p>Lorem Ipsum Text</p>
+<p><%= link raw(~s'<i class="user circle icon"></i>Profile'), to: Routes.user_path(@conn, :show, @current_user.id), class: "ui green button" %></p>
 <img class="wireframe" src="/images/media-paragraph.png">
 <img class="wireframe" src="/images/paragraph.png">
 <img class="wireframe" src="/images/paragraph.png">

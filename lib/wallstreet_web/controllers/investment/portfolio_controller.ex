@@ -1,15 +1,7 @@
 defmodule WallstreetWeb.Investment.PortfolioController do
   use WallstreetWeb, :controller
-  alias Wallstreet.Auth.Accounts
+
   alias Wallstreet.Investment.{Broker, Portfolio}
-  alias Wallstreet.Api.StockPrice
-
-
-
-
-  # def action(conn, _) do
-  #   apply(__MODULE__, action_name(conn), [conn, conn.params, conn.assigns.current_user])
-  # end
 
   def new(conn, _) do
     user = Guardian.Plug.current_resource(conn)

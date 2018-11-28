@@ -30,6 +30,14 @@ defmodule WallstreetWeb.UserController do
     |> put_flash(:info, "User deleted successfully.")
     |> redirect(to: Routes.user_path(conn, :index))
   end
+
+  def show(conn, %{"id" => id}) do
+    user = Accounts.get_user!(id)
+    IO.inspect conn
+    IO.inspect user
+    render(conn, "show.html", user: user)
+  end
+
   # Private
 
   defp redirect_after_login(conn, user) do

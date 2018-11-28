@@ -50,7 +50,8 @@ defmodule Wallstreet.MixProject do
       {:gen_state_machine, "~> 2.0"},
       {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false},
       {:number, "~> 0.5.6"},
-      {:httpoison, "~> 1.4"}
+      {:httpoison, "~> 1.4"},
+      {:exgravatar, "~> 2.0"}
     ]
   end
 

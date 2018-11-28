@@ -1,0 +1,19 @@
+<h1>Showing User</h1>
+<%= @user.display_name%>'s Profile
+<br>
+<%= @user.email %>
+<br>
+<%= gravatar(@user.email)%>
+<br>
+<p><strong>Portfolio</strong></p>
+
+<%= for portfolio <- @user.portfolios do %>
+<p>Created on:
+<%=portfolio.inserted_at.month%>/
+<%=portfolio.inserted_at.day%>/
+<%=portfolio.inserted_at.year%>
+</p>
+  <%= for {k, v} <- portfolio.stocks do %>
+  <%= k %>: <%= Number.Currency.number_to_currency(v) %><br>
+  <%end%>
+<% end %>
