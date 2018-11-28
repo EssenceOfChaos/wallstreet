@@ -14,8 +14,6 @@ defmodule Wallstreet.Investment.Broker do
 
 
   def create_portfolio(%User{} = user, attrs \\ %{}) do
-    IO.inspect("HELLO I AM THE USER")
-    IO.inspect user
     stocks = StockPrice.batch_quote(attrs)
     %Portfolio{}
     |> Portfolio.changeset(Map.put(attrs, "stocks", stocks))

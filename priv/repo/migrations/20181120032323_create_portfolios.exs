@@ -1,4 +1,5 @@
 defmodule Wallstreet.Repo.Migrations.CreatePortfolios do
+  @moduledoc false
   use Ecto.Migration
 
   def change do

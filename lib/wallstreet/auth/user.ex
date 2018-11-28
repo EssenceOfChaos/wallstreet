@@ -1,4 +1,5 @@
 defmodule Wallstreet.Auth.User do
+  @moduledoc false
   use Ecto.Schema
   import Ecto.Changeset
   alias Comeonin.Argon2
@@ -11,7 +12,6 @@ defmodule Wallstreet.Auth.User do
     field :password_hash, :string
     field :rank, :integer
 
-# portfolios ? plural or singular?
     has_many(:portfolios, Wallstreet.Investment.Portfolio)
 
     ## Virtual Fields ##
