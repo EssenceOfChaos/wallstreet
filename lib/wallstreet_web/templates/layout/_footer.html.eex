@@ -7,7 +7,7 @@
             <a href="#" class="item">Link One</a>
             <a href="#" class="item">Link Two</a>
             <a href="#" class="item">Link Three</a>
-            <a href="#" class="item">Link Four</a>
+
           </div>
         </div>
         <div class="three wide column">
@@ -16,7 +16,7 @@
             <a href="#" class="item">Link One</a>
             <a href="#" class="item">Link Two</a>
             <a href="#" class="item">Link Three</a>
-            <a href="#" class="item">Link Four</a>
+
           </div>
         </div>
         <div class="three wide column">
@@ -25,7 +25,7 @@
             <a href="#" class="item">Link One</a>
             <a href="#" class="item">Link Two</a>
             <a href="#" class="item">Link Three</a>
-            <a href="#" class="item">Link Four</a>
+
           </div>
         </div>
         <div class="seven wide column">
@@ -34,7 +34,7 @@
         </div>
       </div>
       <div class="ui inverted section divider"></div>
-      <img src="/images/stock-market.png" class="ui centered mini image">
+      <img src="/images/bank-logo.png" class="ui centered mini image">
       <div class="ui horizontal inverted small divided link list">
         <a class="item" href="#">Site Map</a>
         <a class="item" href="#">Contact Us</a>

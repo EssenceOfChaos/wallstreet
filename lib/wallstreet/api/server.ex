@@ -5,9 +5,9 @@ defmodule Wallstreet.Api.Server do
 
   use GenServer
   @url "https://api.iextrading.com/1.0/stock/{SYMBOL}/price"
-  ## -------------------- ##   ## -------------------- ##
-  ## Client API
-  ## -------------------- ##   ## -------------------- ##
+  ## ------------------------------------------------- ##
+  ##                   Client API                      ##
+  ## ------------------------------------------------- ##
   def start_link(opts \\ []) do
     GenServer.start_link(__MODULE__, :ok, opts)
   end
@@ -29,9 +29,9 @@ defmodule Wallstreet.Api.Server do
   end
 
 
-  ## -------------------- ##   ## -------------------- ##
-  ## Server API
-  ## -------------------- ##   ## -------------------- ##
+  ## ------------------------------------------------- ##
+  ##                   Server API                      ##
+  ## ------------------------------------------------- ##
 
   def init(:ok) do
     {:ok, %{}}
@@ -75,9 +75,9 @@ defmodule Wallstreet.Api.Server do
   end
 
 
-  ## -------------------- ##   ## -------------------- ##
-  ## Helper Functions
-  ## -------------------- ##   ## -------------------- ##
+  ## ------------------------------------------------- ##
+  ##                   Helper Functions                ##
+  ## ------------------------------------------------- ##
 
   defp price_of(stock) do
     uri = String.replace(@url, "{SYMBOL}", stock)

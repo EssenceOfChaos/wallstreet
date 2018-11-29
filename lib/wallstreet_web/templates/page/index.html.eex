@@ -10,16 +10,22 @@
   <div class="right menu">
   </div>
 </div>
+  <div class="ui vertical center aligned masthead segment">
+    <div class="ui text container">
+    <br>
+      <h1 class="ui inverted header">
+         <%= gettext "Welcome to %{name}!", name: "WallStreet" %>
+      </h1>
+      <br>
+         <div class="sub header"><p>Real stocks, real data, play money!</p></div>
+    </div>
+    <br>
+</div>
 
-
-<section class="phx-hero">
-  <h1><%= gettext "Welcome to %{name}!", name: "WallStreet" %></h1>
-  <p>Real stocks, real data, play money!</p>
-</section>
-
-<h1 class="ui header">Semantic UI Fixed Template</h1>
-<p>Lorem Ipsum Text</p>
 <br>
 <img class="wireframe" src="/images/media-paragraph.png">
+<br>
 <img class="wireframe" src="/images/paragraph.png">
+<br>
+<br>
 <img class="wireframe" src="/images/paragraph.png">

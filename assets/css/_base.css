@@ -106,3 +106,20 @@ select {
   margin: 5em 0em 0em;
   padding: 5em 0em;
 }
+
+.ui.vertical.masthead {
+  background-image: url("https://i.imgur.com/74Qil58.jpg" );
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: contain;
+
+}
+h1.ui.inverted.header {
+  font-size: 3rem;
+}
+.sub.header {
+  color: white;
+  font-size: 2rem;
+  font-weight: 600;
+}

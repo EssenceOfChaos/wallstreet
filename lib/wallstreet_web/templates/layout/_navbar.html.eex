@@ -1,7 +1,7 @@
   <nav class="ui fixed inverted menu">
     <div class="ui container">
       <a href="/" class="header item">
-        <img class="logo" src="/images/stock-market.png">
+        <img class="logo" src="/images/bank-logo.png">
        <span class="app-name"> WallStreet </span>
       </a>
 
