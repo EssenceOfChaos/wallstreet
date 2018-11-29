@@ -1,3 +1,15 @@
+<div class="ui small secondary menu">
+  <div class="item">
+   <%= if Wallstreet.Auth.Accounts.get_current_user(@conn) do %>
+  <%= link raw(~s'<i class="user circle icon"></i>Profile'), to: Routes.user_path(@conn, :show, @current_user.id), class: "ui green button" %>
+  <%end%>
+  </div>
+  <div class="item">
+    <%= link raw(~s'<i class="chart pie icon"></i>Create Portfolio'), to: Routes.portfolio_path(@conn, :new), class: "ui yellow button" %>
+  </div>
+  <div class="right menu">
+  </div>
+</div>
 
 
 <section class="phx-hero">
@@ -6,11 +18,8 @@
 </section>
 
 <h1 class="ui header">Semantic UI Fixed Template</h1>
-<p>This is a basic fixed menu template using fixed size containers.</p>
 <p>Lorem Ipsum Text</p>
- <%= if Wallstreet.Auth.Accounts.get_current_user(@conn) do %>
-<p><%= link raw(~s'<i class="user circle icon"></i>Profile'), to: Routes.user_path(@conn, :show, @current_user.id), class: "ui green button" %></p>
-<%end%>
+<br>
 <img class="wireframe" src="/images/media-paragraph.png">
 <img class="wireframe" src="/images/paragraph.png">
 <img class="wireframe" src="/images/paragraph.png">

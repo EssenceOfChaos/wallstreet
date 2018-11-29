@@ -13,18 +13,10 @@
     <%= render "_navbar.html", conn: @conn %>
     <div class="ui container" id="app-wrapper">
     <br>
-
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
       <main role="main">
-        <%= if Map.has_key?(@conn.assigns, :sidebar) do %>
-          <%= render "sidebar.html", conn: @conn %>
-          <div class="main">
-            <%= render @view_module, @view_template, assigns %>
-          </div>
-        <% else %>
         <%= render @view_module, @view_template, assigns %>
-        <% end %>
       </main>
     </div>
     <%= render "_footer.html", conn: @conn %>

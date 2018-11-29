@@ -3,9 +3,15 @@ body {
   font-family: 'Ubuntu', sans-serif;
 }
 
-
 .headline, .center {
   text-align: center;
+}
+
+
+span.app-name {
+  font-size: 1.3rem;
+  font-weight: 800;
+
 }
 
 .sidenav {
@@ -75,7 +81,10 @@ select {
   margin: -1rem 0 2rem;
 }
 
-
+.ui.profile.header {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
 
 .spacer {
   margin-right: 10px;

@@ -1,19 +1,44 @@
-<h1>Showing User</h1>
-<%= @user.display_name%>'s Profile
-<br>
-<%= @user.email %>
-<br>
-<%= gravatar(@user.email)%>
-<br>
-<p><strong>Portfolio</strong></p>
+<div class="ui grid">
+  <div class="eight wide column">
+<h2 class="ui profile header">
+  <%= gravatar(@user.email)%>
+  <div class="content">
+  <%= @user.display_name%>'s Profile
+    <div class="sub header">This is your account dashboard</div>
+  </div>
+</h2>
+ <%= for portfolio <- @user.portfolios do %>
+<div class="ui card">
+  <div class="content">
+    <div class="header">Portfolio # <%=portfolio.id%> </div>
+    <div class="meta">
+      <span class="date"><p>
+       <i class="calendar alternate outline icon"></i>
+        Created on:
+        <%=portfolio.inserted_at.month%>/
+        <%=portfolio.inserted_at.day%>/
+        <%=portfolio.inserted_at.year%></span>
+    </div>
+    <div class="description">
+      <%= for {k, v} <- portfolio.stocks do %>
+      <strong><%= k %></strong>: <%= Number.Currency.number_to_currency(v) %><br>
+      <%end%>
+    </div>
+  </div>
+  <div class="extra content"></div>
+</div>
+<%end%>
+  </div>
+  <div class="eight wide column">
+    <h2 class="ui profile header">
+  <div class="content">
+    <div class="sub header">
+    <%= if @user.portfolios == [] do %>
+    <p>Looks like you haven't created a portfolio yet!</p>
+    <%end%>
+    </div>
+  </div>
+</h2>
+  </div>
+</div>
 
-<%= for portfolio <- @user.portfolios do %>
-<p>Created on:
-<%=portfolio.inserted_at.month%>/
-<%=portfolio.inserted_at.day%>/
-<%=portfolio.inserted_at.year%>
-</p>
-  <%= for {k, v} <- portfolio.stocks do %>
-  <%= k %>: <%= Number.Currency.number_to_currency(v) %><br>
-  <%end%>
-<% end %>
